@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.project.shopping.Service.ProductsService;
 
@@ -49,8 +50,9 @@ public class ProductsController {
     }
 
     @PostMapping("/post")
-    public void createProducts(@RequestBody Products produc) {
-        product.create(produc);
+    public void createProducts(@RequestParam("productName") String productName,@RequestParam("productPrice") int productPrice,
+    @RequestParam("categoryId") int categoryId,@RequestParam("photos") MultipartFile photos) {
+        product.create(productName,productPrice,categoryId,photos);
     }
 
     @DeleteMapping("/delete/{productid}")

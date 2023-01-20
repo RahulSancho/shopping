@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.Data;
 
 @Entity
@@ -22,7 +20,6 @@ public class Payments {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int paymentId;
-    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date date;
     private String paymentMode;
     private int userId;
@@ -30,8 +27,9 @@ public class Payments {
     @OneToOne
     private Orders orders;
 
-   
+    
 
-   
+    
 
+    
 }
